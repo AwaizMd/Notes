@@ -1,3 +1,8 @@
+*understand js :- https://javascript.plainenglish.io/from-good-to-great-why-true-engineers-understand-javascript-inside-out-8df28ac29bf2*
+
+*The Science Behind The JavaScript Engine: How Machines Read Your Code :- https://medium.com/javascript-in-plain-english/the-science-behind-the-javascript-engine-how-machines-read-your-code-3b067973587c*
+
+
 # JavaScript Basics 👶
 
 Let's start off with some basic concepts every JS developer needs to know.
