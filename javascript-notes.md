@@ -14,7 +14,7 @@ Here are the key differences:
 ![image](https://github.com/AwaizMd/Notes/assets/72355688/9b6e8fb7-dece-4d49-b3d5-f9ff4c74205e)
 
 
-** Let's try to understand them through examples. **
+**Let's try to understand them through examples.**
 
 We will cover scope later on. For now, let's focus on the other differences.
 ``` javascript
@@ -59,7 +59,7 @@ console.log(a === b) // false
 
 ```
 
-** Arrays in JavaScript **
+**Arrays in JavaScript**
 Now that we know a bit about variables, let's move on to arrays and array-methods.
 
 If we have declared a lot of variables, it makes sense to store them somewhere. Otherwise it will be difficult to keep track of all of them. Arrays are one way of storing a variable.
@@ -87,7 +87,7 @@ The most frequently used array methods in JS are: map, filter, find, reduce, and
 
 Let's cover map, filter, and forEach. You can explore more in this helpful article.
 
-** The map array method **
+**The map array method**
 map creates a new copy of the original array. We use it when we want to do something with the elements of the original array but don't want to change it.
 
 map iterates over the original array and takes a callback function (which we'll cover later) as an argument. In the callback function, we tell it what to do with the elements.
@@ -104,7 +104,7 @@ console.log(d) // [2,4,6,8,10]
 
 ```
 
-** The filter array method **
+**The filter array method**
 filter creates a new array with elements that meet the given condition(s).
 
 Let's look at an example. I have used arrow functions here. If you are a little uncomfortable with functions, you can cover the next section first and come back.
@@ -133,7 +133,7 @@ for (let i = 0; i < words.length; i++) {
 console.log(newArr)
 ```
 
-** The forEach array method **
+**The forEach array method**
 forEach is very similar to map but has two key differences:
 
 First of all, map returns a new Array, but forEach doesn't.
@@ -181,7 +181,7 @@ We have already used functions above. Let's cover them in more detail now.
 
 Just like how we used variables to store values, we can use functions to store a piece of code which we can reuse.
 
-** You can make function in two ways: **
+**You can make function in two ways:**
 ```javascript
 function a(){
  console.log('I am a normal function');
@@ -219,7 +219,7 @@ Now, let's cover some important concepts related to functions.
 
 Scope determines from where the variables are accessible.
 
-** There are three types of scope: **
+**There are three types of scope:**
 
 Global (declaration outside of any function)
 Function (declaration inside a function)
@@ -326,7 +326,7 @@ const result = multiplyByTwo(5); // Returns 10
 console.log(result); // Outputs: 10
 
 ```
-Data Hiding/Encapsulation
+**Data Hiding/Encapsulation**
 
 * Data hiding is achieved by keeping certain variables private within the scope of an outer function.
 * The outer function returns an object that contains methods (inner functions) for accessing or manipulating the private variables.
