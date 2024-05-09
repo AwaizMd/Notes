@@ -124,6 +124,7 @@ The most frequently used array methods in JS are: map, filter, find, reduce, and
 Let's cover map, filter, and forEach. You can explore more in this helpful article.
 
 **The map array method**
+
 map creates a new copy of the original array. We use it when we want to do something with the elements of the original array but don't want to change it.
 
 map iterates over the original array and takes a callback function as an argument. In the callback function, we tell it what to do with the elements.
@@ -141,6 +142,7 @@ console.log(d) // [2,4,6,8,10]
 ```
 
 **The filter array method**
+
 filter creates a new array with elements that meet the given condition(s).
 
 Let's look at an example. I have used arrow functions here. If you are a little uncomfortable with functions, you can cover the next section first and come back.
@@ -170,6 +172,7 @@ console.log(newArr)
 ```
 
 **The forEach array method**
+
 forEach is very similar to map but has two key differences:
 
 First of all, map returns a new Array, but forEach doesn't.
@@ -254,6 +257,25 @@ const [a, b, c] = numbers;
 console.log(a); // Output: 1
 console.log(b); // Output: 2
 console.log(c); // Output: 3
+
+```
+
+## Optional Chaining ?
+Optional Chaining is a feature in JavaScript that allows developers to access object properties without worrying about whether the object is null or undefined. It is denoted by the question mark (?) and the dot (.) operator.
+
+```js
+const user = {
+  name: 'John',
+  address: {
+    street: '123 Main St',
+    city: 'New York'
+  }
+};
+
+// Accessing nested property using Optional Chaining
+const country = user?.address?.country;
+
+console.log(country); // Output: undefined
 
 ```
 
