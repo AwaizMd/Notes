@@ -65,6 +65,25 @@ console.log(a == b) // true
 console.log(a === b) // false
 
 ```
+## Nullish operator
+In JavaScript, the nullish coalescing operator (??) is a logical operator that returns the right-hand side operand when the left-hand side operand is either null or undefined. If the left-hand side operand is any other value, including false, 0, "", or other falsy values, it returns the left-hand side operand. This makes it distinct from the logical OR (||) operator, which returns the right-hand side operand if the left-hand side operand is falsy.
+```js
+const result = leftOperand ?? rightOperand;
+```
+If leftOperand is null or undefined, result will be rightOperand.
+Otherwise, result will be leftOperand.
+Example:
+Here are some examples of how the nullish coalescing operator works:
+```js
+const x = 0;
+const y = 12;
+
+let value = x ?? y;
+let withor = x || y;
+
+console.log(value) //0
+console.log(withor) //12
+```
 
 **Arrays in JavaScript**
 Now that we know a bit about variables, let's move on to arrays and array-methods.
@@ -88,6 +107,24 @@ const arr = [4,5,'hello']
 But only storing variables in an array is kind of boring. We can do more stuff with this array (like accessing these variables or changing the order in which they are stored or how they are stored).
 
 For that, JS has a lot of methods. Let's look at some of them now.
+
+
+## destructuring and destructuring Arrays ?
+Destructuring is a feature in JavaScript that allows you to extract values from arrays, objects, and other structures into distinct variables.
+
+Destructuring Arrays is the process of breaking down an array into individual elements, and assigning those elements to separate variables. This can be done using array destructuring syntax, which uses square brackets on the left-hand side of the assignment operator to specify the variables to which the array elements should be assigned.
+
+```js
+const numbers = [1, 2, 3];
+
+// Destructuring the array into individual variables
+const [a, b, c] = numbers;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+
+```
 
 ## JavaScript Array Methods 🧰
 The most frequently used array methods in JS are: map, filter, find, reduce, and forEach.
@@ -254,6 +291,23 @@ console.log(c) // 10
 console.log(c) // Error as c is not accessible outside the block
 ```
 
+## What is a Set
+In JavaScript, a Set is a built-in object that allows you to store unique values of any type, whether primitive values or object references. The values can be added or removed from the Set, and you can also check if a value exists in the Set using its methods. Unlike arrays, Sets are not ordered and do not have indexes.
+
+how to create a Set
+To create a set in JavaScript, you can use the built-in Set object. Here's an example:
+```js
+const mySet = new Set([1, 2, 3]);
+```
+In this example, mySet is a Set object that contains the values 1, 2, and 3.
+
+You can also create an empty set and add values to it using the add() method:
+```js
+const mySet = new Set();
+mySet.add(4);
+mySet.add(5);
+mySet.add(6);
+```
 ## Closures in JavaScript (❗important) 🔒
 We have already used a closure without even realizing it. In the example below, prefix is a closed-over-variable.
 
