@@ -213,9 +213,10 @@ consoleEven(arr)
 Note: map and forEach don't mutate (change) the original array.
 
 
-**reduce method**
+**Reduce method**
 
 **Purpose:** The reduce() method is used to process an array and produce a single output value. It "reduces" the array to a single value by applying a function you provide.
+
 **Function:** The function provided to reduce() receives two primary arguments:
 * An accumulator, which stores the current result of the reduction.
 * The current element being processed from the array.
