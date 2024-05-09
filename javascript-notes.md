@@ -56,10 +56,9 @@ console.log(e)
 console.log(f)
 ```
 
-*Will this throw an error? Go through the table and try to find the answer.*
 Note: *In JavaScript, putting a semi-colon after the end of statement is optional. I will be skipping it here for the sake of readability.*
 
-== vs === in JavaScript
+## == vs === in JavaScript
 Let's compare some variables. There are two ways you can do that.
 
 == only checks for the value
@@ -85,7 +84,7 @@ Otherwise, result will be leftOperand.
 Example:
 Here are some examples of how the nullish coalescing operator works:
 ```js
-const x = 0;
+const x = 0; 
 const y = 12;
 
 let value = x ?? y;
@@ -98,7 +97,7 @@ console.log(withor) //12
 **Arrays in JavaScript**
 Now that we know a bit about variables, let's move on to arrays and array-methods.
 
-If we have declared a lot of variables, it makes sense to store them somewhere. Otherwise it will be difficult to keep track of all of them. Arrays are one way of storing a variable.
+Array is a datastructure which allows to store a coolection of items, such as numbers, strings, objects, or even other arrays. Arrays are useful for organizing and managing groups of related data.
 
 ```javascript
 
@@ -119,23 +118,6 @@ But only storing variables in an array is kind of boring. We can do more stuff w
 For that, JS has a lot of methods. Let's look at some of them now.
 
 
-## destructuring and destructuring Arrays ?
-Destructuring is a feature in JavaScript that allows you to extract values from arrays, objects, and other structures into distinct variables.
-
-Destructuring Arrays is the process of breaking down an array into individual elements, and assigning those elements to separate variables. This can be done using array destructuring syntax, which uses square brackets on the left-hand side of the assignment operator to specify the variables to which the array elements should be assigned.
-
-```js
-const numbers = [1, 2, 3];
-
-// Destructuring the array into individual variables
-const [a, b, c] = numbers;
-
-console.log(a); // Output: 1
-console.log(b); // Output: 2
-console.log(c); // Output: 3
-
-```
-
 ## JavaScript Array Methods 🧰
 The most frequently used array methods in JS are: map, filter, find, reduce, and forEach.
 
@@ -144,7 +126,7 @@ Let's cover map, filter, and forEach. You can explore more in this helpful artic
 **The map array method**
 map creates a new copy of the original array. We use it when we want to do something with the elements of the original array but don't want to change it.
 
-map iterates over the original array and takes a callback function (which we'll cover later) as an argument. In the callback function, we tell it what to do with the elements.
+map iterates over the original array and takes a callback function as an argument. In the callback function, we tell it what to do with the elements.
 
 ``` javascript
 
@@ -230,7 +212,24 @@ consoleEven(arr)
 ```
 Note: map and forEach don't mutate (change) the original array.
 
-Functional Programming in JavaScript 🛠
+## destructuring and destructuring Arrays ?
+Destructuring is a feature in JavaScript that allows you to extract values from arrays, objects, and other structures into distinct variables.
+
+Destructuring Arrays is the process of breaking down an array into individual elements, and assigning those elements to separate variables. This can be done using array destructuring syntax, which uses square brackets on the left-hand side of the assignment operator to specify the variables to which the array elements should be assigned.
+
+```js
+const numbers = [1, 2, 3];
+
+// Destructuring the array into individual variables
+const [a, b, c] = numbers;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+
+```
+
+## Functional Programming in JavaScript 🛠
 We have already used functions above. Let's cover them in more detail now.
 
 Just like how we used variables to store values, we can use functions to store a piece of code which we can reuse.
