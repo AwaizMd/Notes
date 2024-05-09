@@ -25,25 +25,35 @@ Here are the key differences:
 
 We will cover scope later on. For now, let's focus on the other differences.
 ``` javascript
-var a = 3
-var a = 4
+var a =1;
+let b =2;
+const c = 3;
 
-console.log(a) // 4 as var variables can be redeclared + updated
-
-let b = 3
-let b = 4
-
-console.log(b) // Syntax Error as let variables cannot be redeclared
-
-// If we just do, it will work because it can be updated
-b = 4 
-
-const c = 3
-const c = 4
-
-console.log(c) // Syntax Error as const variables cannot be redeclared or updated
-
-const d
+function dummy(){
+    var d = 4;
+    let e = 5;  // let is blocked scope
+    e = 8; // can be updated
+    const f = 6;
+    f = 9; // cannot update it will throw ->  Assignment to constant variable.
+    if(d==4){
+        var g = 7;  // var is global scope but can be accessed inside this function itself not outside this function, its more like function-scoped.
+        var g = 10 // can be re declared
+        let h = 8; // let is blocked scope it can be accessed only in this block, not in this whole function like var.
+        let h = 18;// can't be re declared
+        const i = 9;
+        const i = 9;// can't be re declared
+    }
+    console.log(g) // can be accessed out of the block
+    console.log(h)// can't be accessed out of the block
+    console.log(i)// can't be accessed out of the block
+}
+dummy()
+console.log(a)
+console.log(b)
+console.log(c)
+console.log(d)
+console.log(e)
+console.log(f)
 ```
 
 *Will this throw an error? Go through the table and try to find the answer.*
