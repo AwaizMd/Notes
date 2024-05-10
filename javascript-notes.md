@@ -772,7 +772,7 @@ Instead of providing a half-baked explanation here, I highly recommend reading t
 Learn all about event loops in above links.
 
 **Timers in JavaScript – setTimeout, setInterval, clearInterval ⏱️**
-I hope you watched the video. It mentioned timers. Let's talk about them more now. These are very frequently asked about in interviews.
+I hope you read from the link.
 
 The setTimeout() method calls a function or evaluates an expression after a specified number of milliseconds.
 
@@ -821,7 +821,7 @@ And here's a short explanation of what's going on there: when setTimeout comes a
 
 Now, let's say we want the outcome to be 1 2 3 4 5 – what do we do?
 
-Instead of var ➡️ use let.
+*Instead of var ➡️ use let.*
 
 Why this will work?
 
@@ -863,7 +863,7 @@ async function asyncCall() {
 
 asyncCall()
 ```
-One of the advantages of promises is that they are a much cleaner syntax. Before we had promises, we could easily get stuck in callback hell 🌋
+One of the advantages of async await is that they are a much cleaner syntax. Before we had promises, we could easily get stuck in callback hell 🌋
 
 ## Advanced JavaScript Concepts to Know
 
