@@ -351,6 +351,84 @@ console.log(c) // 10
 console.log(c) // Error as c is not accessible outside the block
 ```
 
+## *this* keyword in js
+
+*this* keyword refers to the context in which a function is called.
+* **Global Context  :-** In the global context (i.e., outside of any function), this refers to the global object, which is window in browsers and global in 
+                         Node.js.
+  ```js
+  console.log(this); // In a browser, logs the `window` object
+  ```
+* **Function Context :-** When a function is called normally, this refers to the global object if the function is not part of an object.
+  ```js
+  function showThis() {
+    console.log(this); // In a browser, logs the `window` object
+  }
+
+  showThis();
+  ```
+* **Object Method Context :-** When a function is a method of an object (i.e., a property of an object and called using dot notation), *this* refers to the object 
+                               that owns the method.
+  ```js
+  const person = {
+    name: 'Alice',
+    greet() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+  };
+
+  person.greet(); // `this` refers to the `person` object
+
+  ```
+
+* **Arrow Functions :-** 1. In arrow functions, *this* behaves differently than in regular functions. It does not change depending on the calling context.
+                         2. Instead, it keeps the value of *this* from the outer (lexical) context where the arrow function is defined.
+  ```js
+  const person = {
+    name: 'Alice',
+    greet: () => {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+  };
+
+  person.greet(); // `this` does not refer to the `person` object, likely logs `undefined` or `Hello, my name is` because `this` is from the outer context.
+
+  ```
+* **Constructor Functions :-** In a constructor function, *this* refers to the newly created object.
+  ```js
+  function Person(name) {
+    this.name = name;
+  }
+
+  const alice = new Person('Alice');
+  console.log(alice.name); // Logs: Alice
+
+  ```
+
+* **Event Handlers :-** In event handlers, *this* refers to the element that received the event (e.g., the button clicked).
+  ```js
+  const button = document.getElementById('myButton');
+  button.addEventListener('click', function() {
+    console.log(this); // Logs the button element (`button`)
+  });
+  
+  ```
+* **Explicitly Changing this :-** You can explicitly change the value of this using methods such as call(), apply(), or bind().
+  ```js
+  function greet() {
+    console.log(`Hello, ${this.name}`);
+  }
+
+  const person = { name: 'Alice' };
+  greet.call(person); // `this` is set to the `person` object
+
+  ``` 
+
+## Difference between Normal function and Arraow function
+
+![image](https://github.com/AwaizMd/Notes/assets/72355688/922eea49-b61a-4019-a342-f25e61063a43)
+
+
 ## What is a Set
 In JavaScript, a Set is a built-in object that allows you to store unique values of any type, whether primitive values or object references. The values can be added or removed from the Set, and you can also check if a value exists in the Set using its methods. Unlike arrays, Sets are not ordered and do not have indexes.
 
