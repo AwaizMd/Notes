@@ -767,9 +767,9 @@ To help with this, asynchronous JS comes into play.
 And the most important concept to understand is the event loop.
 
 Event Loops in JavaScript ➰
-Instead of providing a half-baked explanation here, I highly recommend watching this video by Philip Roberts if you haven't already:
+Instead of providing a half-baked explanation here, I highly recommend reading top link to understand js working.
 
-Learn all about event loops in JS here.
+Learn all about event loops in above links.
 
 **Timers in JavaScript – setTimeout, setInterval, clearInterval ⏱️**
 I hope you watched the video. It mentioned timers. Let's talk about them more now. These are very frequently asked about in interviews.
