@@ -584,8 +584,6 @@ consoleNum() // undefined
 
 // If instead of var -> let, it will give an error as let values are not initialized
 ```
-Phew! I am done with functions here, but if you want more check out this amazing talk by Anjana Vakil on functional programming.
-
 ## Objects in JavaScript 🔮
 Just like arrays, objects are a way of storing data. We do so with the help of key-value pairs.
 
