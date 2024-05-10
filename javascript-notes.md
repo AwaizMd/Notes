@@ -357,7 +357,7 @@ console.log(c) // Error as c is not accessible outside the block
 * **Global Context  :-** In the global context (i.e., outside of any function), this refers to the global object, which is window in browsers and global in 
                          Node.js.
   ```js
-  console.log(this); // In a browser, logs the `window` object
+  console.log(this); // returns window obj in browser and {} in node.js because this refers to the module context (in Node.js).
   ```
 * **Function Context :-** When a function is called normally, this refers to the global object if the function is not part of an object.
   ```js
@@ -367,8 +367,8 @@ console.log(c) // Error as c is not accessible outside the block
 
   showThis();
   ```
-* **Object Method Context :-** When a function is a method of an object (i.e., a property of an object and called using dot notation), *this* refers to the object 
-                               that owns the method.
+* **Object Method Context :-** When a function is a method of an object (i.e., a property of an object and called using dot notation), *this* refers to the 
+    object that owns the method.
   ```js
   const person = {
     name: 'Alice',
