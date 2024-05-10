@@ -280,7 +280,8 @@ console.log(country); // Output: undefined
 ```
 
 ## Functional Programming in JavaScript 🛠
-We have already used functions above. Let's cover them in more detail now.
+
+A function is a reusable block of code that performs a specific task and can accept inputs (arguments) and return an output (a result)
 
 Just like how we used variables to store values, we can use functions to store a piece of code which we can reuse.
 
