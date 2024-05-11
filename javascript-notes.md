@@ -780,6 +780,73 @@ So, if we make the displayName() from above an arrow function, nothing will work
 
 *Arrow functions basically inherit the parent's context which in the above case is the window.*
 
+
+## call, apply and bind
+
+**call() & apply** : 
+* call() and apply() are used to invoke functions with a specified context (this value) and arguments, where as in call arguments provided individually and in apply arguments provided in array
+```js
+// call()
+
+const person = {
+    fullName: function(city, country) {
+        return this.firstName + " " + this.lastName + ", " + city + ", " + country;
+    }
+}
+
+const person1 = {
+    firstName: "John",
+    lastName: "Doe"
+}
+
+const person2 = {
+    firstName: "Jane",
+    lastName: "Doe"
+}
+
+// Using call to invoke the function with different context
+console.log(person.fullName.call(person1, "New York", "USA")); // Output: John Doe, New York, USA
+console.log(person.fullName.call(person2, "London", "UK")); // Output: Jane Doe, London, UK
+
+
+//apply()
+const numbers = [5, 10, 15];
+
+// Using apply to find the maximum value in the array
+const max = Math.max.apply(null, numbers);
+console.log(max); // Output: 15
+
+
+```
+**bind()** : it creates a new function with a fixed context, which can be invoked later.
+
+```js
+const person = {
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+}
+
+const person1 = {
+    firstName: "John",
+    lastName: "Doe"
+}
+
+const person2 = {
+    firstName: "Jane",
+    lastName: "Doe"
+}
+
+// Using bind to create a new function with a fixed context
+const person1FullName = person.fullName.bind(person1);
+const person2FullName = person.fullName.bind(person2);
+
+console.log(person1FullName()); // Output: John Doe
+console.log(person2FullName()); // Output: Jane Doe
+
+
+```
+
 ## Prototypes and Prototypal Inheritance in JavaScript 👪
 Prototypes in JavaScript are a fundamental concept that allows objects to inherit properties and methods from other objects. Every JavaScript object has a prototype, which is an object from which it inherits properties.
 
