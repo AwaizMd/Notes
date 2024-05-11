@@ -430,6 +430,28 @@ console.log(c) // Error as c is not accessible outside the block
 
 ![image](https://github.com/AwaizMd/Notes/assets/72355688/922eea49-b61a-4019-a342-f25e61063a43)
 
+## constructor in js
+
+
+A constructor function in JavaScript serves as a blueprint for creating objects. It defines the structure and behavior of objects that will be created using it. When you create an object with a constructor function, you're essentially creating an instance of the blueprint defined by that function.
+
+```js
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.sayHello = function() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    };
+}
+
+const person1 = new Person('Alice', 30);
+const person2 = new Person('Bob', 25);
+
+person1.sayHello(); // Output: Hello, my name is Alice and I am 30 years old.
+person2.sayHello(); // Output: Hello, my name is Bob and I am 25 years old.
+
+```
+
 
 ## What is a Set
 In JavaScript, a Set is a built-in object that allows you to store unique values of any type, whether primitive values or object references. The values can be added or removed from the Set, and you can also check if a value exists in the Set using its methods. Unlike arrays, Sets are not ordered and do not have indexes.
