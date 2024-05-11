@@ -173,6 +173,8 @@ console.log(newArr)
 
 **The forEach array method**
 
+*It iterates over the elements of an array and execute a callback function for each element. It does not return a new array and does not modify the original array directly, but it can be used to perform operations that modify the elements of the array in place.*
+
 forEach is very similar to map but has two key differences:
 
 First of all, map returns a new Array, but forEach doesn't.
