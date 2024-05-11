@@ -452,9 +452,55 @@ person2.sayHello(); // Output: Hello, my name is Bob and I am 25 years old.
 
 ```
 
+## rest operator
+ It is used to gather multiple elements into a single array. It allows you to handle an arbitrary number of arguments more flexibly, especially in function parameters or array destructuring.
+
+ ```js
+// When used in function parameters, the rest operator gathers all remaining arguments into an array.
+function sum(...numbers) {
+    let result = 0;
+    for (let number of numbers) {
+        result += number;
+    }
+    return result;
+}
+
+console.log(sum(1, 2, 3)); // Output: 6
+console.log(sum(1, 2, 3, 4, 5)); // Output: 15
+
+// When used in array destructuring, the rest operator collects the remaining elements into a new array.
+
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+
+console.log(first); // Output: 1
+console.log(second); // Output: 2
+console.log(rest); // Output: [3, 4, 5]
+
+```
+
+## spread operator
+* It is used to expand an iterable (like an array) into individual elements. It's the counterpart to the rest parameter, which gathers elements into an array.
+* You can use the spread operator to create a shallow copy of an array.
+``` js
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combinedArray = [...arr1, ...arr2];
+
+console.log(combinedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+
+shallow copy:
+const originalArray = [1, 2, 3];
+const copiedArray = [...originalArray];
+
+console.log(copiedArray); // Output: [1, 2, 3]
+
+
+```
+
 
 ## What is a Set
-In JavaScript, a Set is a built-in object that allows you to store unique values of any type, whether primitive values or object references. The values can be added or removed from the Set, and you can also check if a value exists in the Set using its methods. Unlike arrays, Sets are not ordered and do not have indexes.
+It allows you to store unique values of any type, whether primitive values or object references. The values can be added or removed from the Set, and you can also check if a value exists in the Set using its methods. Unlike arrays, Sets are not ordered and do not have indexes.
 
 how to create a Set
 To create a set in JavaScript, you can use the built-in Set object. Here's an example:
@@ -470,6 +516,13 @@ mySet.add(4);
 mySet.add(5);
 mySet.add(6);
 ```
+## Deep copy and Shallow copy
+
+**shallow copy:** It creates a new object, but if the original object contains nested objects (or arrays), only references to those nested objects are copied, not the objects themselves. Therefore, changes made to nested objects in the copy will also affect the original object (and vice versa).
+
+**deep copy:**  It creates a new object where all properties and nested objects are duplicated, not just their references. Changes made to the copied object (or any of its nested objects) will not affect the original object, and vice versa.
+
+
 ## Closures in JavaScript (❗important) 🔒
 We have already used a closure without even realizing it. In the example below, prefix is a closed-over-variable.
 
@@ -516,15 +569,7 @@ When x is invoked, y is returned. Now, y is waiting to be executed. Kind of like
 
 So, when we finally invoke z, y is invoked. Now, y has to log a so it first tries to find 🔍 it in the local memory but it's not there. It goes to its parent function. It finds a there.
 
-Voila! There you have it - this is closure.
-
 Even when functions are returned (in the above case y) they still remember their lexical scope (where it came from)
-
-**Totally unrelated quote for kicks 👻:**
-
-They may forget what you said - but they will never forget how you made them feel - Carl W. Buehner
-
-I swear the rest of the article is legit 🤞 Keep reading.
 
 **Advantages of Closures in JavaScript 😎**
 
@@ -736,7 +781,7 @@ So, if we make the displayName() from above an arrow function, nothing will work
 *Arrow functions basically inherit the parent's context which in the above case is the window.*
 
 ## Prototypes and Prototypal Inheritance in JavaScript 👪
-Whenever we create anything (like an object or function) in JavaScript, the JS Engine automatically attaches that thing with some properties and methods.
+Prototypes in JavaScript are a fundamental concept that allows objects to inherit properties and methods from other objects. Every JavaScript object has a prototype, which is an object from which it inherits properties.
 
 All this comes via prototypes.
 
@@ -758,6 +803,9 @@ We can do the same with objects and functions as well.
 We will always find Object.prototype behind the scenes. That's why you may have heard that everything in JS is an object. 🤯
 
 What is Prototypal Inheritance in JavaScript?
+
+JavaScript uses prototype-based inheritance, where objects inherit properties and methods from their prototype. This allows for code reuse and the creation of hierarchies of objects with shared behavior.
+
 ```js
 let object = {
   name: 'Rajat',
@@ -852,8 +900,8 @@ Why this will work?
 var is globally scoped but let is locally scoped. So for let a new i is created for every iteration.
 
 ## Promises in JavaScript (❗important) 🤝
-Promises are at the heart of Asynchronous JS.
 
+Promises in JavaScript provide a way to handle asynchronous operations more easily and cleanly. They allow  to work with asynchronous code in a more sequential and predictable manner.
 The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
 A promise can be in one of these three states:
