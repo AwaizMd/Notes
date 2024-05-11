@@ -94,7 +94,7 @@ console.log(value) //0
 console.log(withor) //12
 ```
 
-**Arrays in JavaScript**
+## **Arrays in JavaScript**
 Now that we know a bit about variables, let's move on to arrays and array-methods.
 
 Array is a datastructure which allows to store a coolection of items, such as numbers, strings, objects, or even other arrays. Arrays are useful for organizing and managing groups of related data.
