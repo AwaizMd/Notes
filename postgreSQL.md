@@ -5,93 +5,135 @@
 **PostgreSQL supports a rich set of data types, allowing for a wide range of data storage needs. Here's an overview of the primary data types in PostgreSQL:**
 
 **1. Numeric Types**
-* smallint: 2 bytes, range from -32,768 to 32,767.
-8 integer (or int): 4 bytes, range from -2,147,483,648 to 2,147,483,647.
-* bigint: 8 bytes, range from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
-* decimal (or numeric): Variable storage, user-defined precision and scale.
-* real: 4 bytes, single precision floating-point number.
-* double precision: 8 bytes, double precision floating-point number.
-* serial: Auto-incrementing integer (4 bytes).
-* bigserial: Auto-incrementing bigint (8 bytes).
+* **smallint**: 2 bytes, range from -32,768 to 32,767.
+  * Example: `smallint_col SMALLINT = 12345`
+* **integer** (or **int**): 4 bytes, range from -2,147,483,648 to 2,147,483,647.
+  * Example: `integer_col INTEGER = 2147483647`
+* **bigint**: 8 bytes, range from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+  * Example: `bigint_col BIGINT = 9223372036854775807`
+* **decimal** (or **numeric**): Variable storage, user-defined precision and scale.
+  * Example: `decimal_col DECIMAL(10, 2) = 12345.67`
+* **real**: 4 bytes, single precision floating-point number.
+  * Example: `real_col REAL = 1.2345`
+* **double precision**: 8 bytes, double precision floating-point number.
+  * Example: `double_precision_col DOUBLE PRECISION = 1.23456789012345`
+* **serial**: Auto-incrementing integer (4 bytes).
+  * Example: `serial_col SERIAL`
+* **bigserial**: Auto-incrementing bigint (8 bytes).
+  * Example: `bigserial_col BIGSERIAL`
 
 **2. Monetary Types**
-* money: 8 bytes, stores currency amounts with a fixed fractional precision.
+* **money**: 8 bytes, stores currency amounts with a fixed fractional precision.
+  * Example: `money_col MONEY = '$1234.56'`
 
 **3. Character Types**
-* character varying(n) (or varchar(n)): Variable-length string with a limit of n characters.
-* character(n) (or char(n)): Fixed-length string, padded with spaces if necessary.
-* text: Variable-length string without a specific length limit.
+* **character varying(n)** (or **varchar(n)**): Variable-length string with a limit of n characters.
+  * Example: `varchar_col VARCHAR(50) = 'Hello World'`
+* **character(n)** (or **char(n)**): Fixed-length string, padded with spaces if necessary.
+  * Example: `char_col CHAR(10) = 'Hello '`
+* **text**: Variable-length string without a specific length limit.
+  * Example: `text_col TEXT = 'This is a long text string.'`
 
 **4. Binary Data Types**
-* bytea: Variable-length binary string.
+* **bytea**: Variable-length binary string.
+  * Example: `bytea_col BYTEA = '\\xDEADBEEF'`
   
 **5. Date/Time Types**
-
-* timestamp [ (p) ] [ without time zone ]: Date and time (no time zone).
-* timestamp [ (p) ] with time zone: Date and time, including time zone.
-* date: Calendar date (year, month, day).
-* time [ (p) ] [ without time zone ]: Time of day (no time zone).
-* time [ (p) ] with time zone: Time of day, including time zone.
-* interval [ fields ] [ (p) ]: Time span.
+* **timestamp [ (p) ] [ without time zone ]**: Date and time (no time zone).
+  * Example: `timestamp_col TIMESTAMP = '2024-06-03 12:34:56'`
+* **timestamp [ (p) ] with time zone**: Date and time, including time zone.
+  * Example: `timestamptz_col TIMESTAMPTZ = '2024-06-03 12:34:56+00'`
+* **date**: Calendar date (year, month, day).
+  * Example: `date_col DATE = '2024-06-03'`
+* **time [ (p) ] [ without time zone ]**: Time of day (no time zone).
+  * Example: `time_col TIME = '12:34:56'`
+* **time [ (p) ] with time zone**: Time of day, including time zone.
+  * Example: `timetz_col TIMETZ = '12:34:56+00'`
+* **interval [ fields ] [ (p) ]**: Time span.
+  * Example: `interval_col INTERVAL = '1 year 2 months 3 days'`
 
 **6. Boolean Type**
-
-* boolean: Stores TRUE, FALSE, or NULL.
+* **boolean**: Stores TRUE, FALSE, or NULL.
+  * Example: `boolean_col BOOLEAN = TRUE`
 
 **7. Enumerated Types**
-
-* enum: User-defined list of values.
+* **enum**: User-defined list of values.
+  * Example: `enum_col my_enum = 'value1'`
+    ```sql
+    CREATE TYPE my_enum AS ENUM ('value1', 'value2', 'value3');
+    ```
 
 **8. Geometric Types**
-
-* point: A geometric point (x, y).
-* line: Infinite line.
-* lseg: Line segment.
-* box: Rectangular box.
-* path: Geometric path (open or closed).
-* polygon: Polygon (a closed path).
-* circle: Circle.
+* **point**: A geometric point (x, y).
+  * Example: `point_col POINT = '(1,2)'`
+* **line**: Infinite line.
+  * Example: `line_col LINE = '{1,2,3}'`
+* **lseg**: Line segment.
+  * Example: `lseg_col LSEG = '[(1,2),(3,4)]'`
+* **box**: Rectangular box.
+  * Example: `box_col BOX = '((1,2),(3,4))'`
+* **path**: Geometric path (open or closed).
+  * Example: `path_col PATH = '[(1,2),(3,4),(5,6)]'`
+* **polygon**: Polygon (a closed path).
+  * Example: `polygon_col POLYGON = '((1,2),(3,4),(5,6))'`
+* **circle**: Circle.
+  * Example: `circle_col CIRCLE = '<(1,2),3>'`
 
 **9. Network Address Types**
-
-* cidr: IPv4 or IPv6 network.
-* inet: IPv4 or IPv6 host address.
-* macaddr: MAC address.
+* **cidr**: IPv4 or IPv6 network.
+  * Example: `cidr_col CIDR = '192.168.100.0/24'`
+* **inet**: IPv4 or IPv6 host address.
+  * Example: `inet_col INET = '192.168.100.1'`
+* **macaddr**: MAC address.
+  * Example: `macaddr_col MACADDR = '08:00:2b:01:02:03'`
 
 **10. Bit String Types**
-
-* bit [ (n) ]: Fixed-length bit string.
-* bit varying [ (n) ] (or varbit): Variable-length bit string.
+* **bit [ (n) ]**: Fixed-length bit string.
+  * Example: `bit_col BIT(4) = B'1010'`
+* **bit varying [ (n) ]** (or **varbit**): Variable-length bit string.
+  * Example: `varbit_col VARBIT(10) = B'1010'`
 
 **11. Text Search Types**
-
-* tsvector: Text search vector.
-* tsquery: Text search query.
+* **tsvector**: Text search vector.
+  * Example: `tsvector_col TSVECTOR = 'a fat cat sat on a mat and ate a fat rat'`
+* **tsquery**: Text search query.
+  * Example: `tsquery_col TSQUERY = 'fat & rat'`
 
 **12. UUID Type**
-
-* uuid: Universally Unique Identifier.
+* **uuid**: Universally Unique Identifier.
+  * Example: `uuid_col UUID = '550e8400-e29b-41d4-a716-446655440000'`
 
 **13. JSON Types**
-
-* json: Textual JSON data.
-* jsonb: Binary JSON data (decomposed binary format).
+* **json**: Textual JSON data.
+  * Example: `json_col JSON = '{"name": "John", "age": 30, "city": "New York"}'`
+* **jsonb**: Binary JSON data (decomposed binary format).
+  * Example: `jsonb_col JSONB = '{"name": "John", "age": 30, "city": "New York"}'`
 
 **14. Array Types**
-
-* array: Allows storage of multiple values of a specified data type.
+* **array**: Allows storage of multiple values of a specified data type.
+  * Example: `array_col INTEGER[] = ARRAY[1, 2, 3]`
 
 **15. Composite Types**
-
-* composite: Row type (a structure with multiple fields of varying types).
+* **composite**: Row type (a structure with multiple fields of varying types).
+  * Example:
+    ```sql
+    CREATE TYPE my_composite AS (
+        name TEXT,
+        age INTEGER
+    );
+    ```
+    `composite_col my_composite = ROW('John', 30)`
 
 **16. Range Types**
-
-* int4range: Range of integer.
-* int8range: Range of bigint.
-* numrange: Range of numeric.
-* tsrange: Range of timestamp without time zone.
-* tstzrange: Range of timestamp with time zone.
-daterange: Range of date.
-
-
+* **int4range**: Range of integer.
+  * Example: `int4range_col INT4RANGE = '[1,10)'`
+* **int8range**: Range of bigint.
+  * Example: `int8range_col INT8RANGE = '[100,1000)'`
+* **numrange**: Range of numeric.
+  * Example: `numrange_col NUMRANGE = '[10.5,20.5)'`
+* **tsrange**: Range of timestamp without time zone.
+  * Example: `tsrange_col TSRANGE = '[2024-06-01 00:00:00, 2024-06-02 00:00:00)'`
+* **tstzrange**: Range of timestamp with time zone.
+  * Example: `tstzrange_col TSTZRANGE = '[2024-06-01 00:00:00+00, 2024-06-02 00:00:00+00)'`
+* **daterange**: Range of date.
+  * Example: `daterange_col DATERANGE = '[2024-06-01, 2024-06-10)'`
