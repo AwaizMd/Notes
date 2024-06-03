@@ -93,3 +93,5 @@
 * tsrange: Range of timestamp without time zone.
 * tstzrange: Range of timestamp with time zone.
 daterange: Range of date.
+
+
