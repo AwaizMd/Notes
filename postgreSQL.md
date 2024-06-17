@@ -137,3 +137,112 @@
   * Example: `tstzrange_col TSTZRANGE = '[2024-06-01 00:00:00+00, 2024-06-02 00:00:00+00)'`
 * **daterange**: Range of date.
   * Example: `daterange_col DATERANGE = '[2024-06-01, 2024-06-10)'`
+
+
+
+
+# Table Level Queries
+
+This document provides common table-level queries in PostgreSQL, including creating a table, altering a table, and dropping a table.
+
+## 1. Create Table
+
+To create a new table in PostgreSQL, use the `CREATE TABLE` statement.
+
+```sql
+CREATE TABLE table_name (
+    column1 data_type constraint,
+    column2 data_type constraint,
+    column3 data_type constraint,
+    ...
+    table_constraints
+);
+```
+
+## 2. Alter Table
+
+To modify an existing table, use the ALTER TABLE statement.
+
+```sql
+
+ALTER TABLE table_name ADD COLUMN column_name data_type constraint;
+ALTER TABLE employees ADD COLUMN department_id INTEGER;
+
+ALTER TABLE table_name DROP COLUMN column_name;
+ALTER TABLE employees DROP COLUMN department_id;
+
+ALTER TABLE table_name RENAME COLUMN old_name TO new_name;
+ALTER TABLE employees RENAME COLUMN hire_date TO start_date;
+
+-- Modify Column Data Type
+ALTER TABLE table_name ALTER COLUMN column_name TYPE new_data_type;
+ALTER TABLE employees ALTER COLUMN salary TYPE DECIMAL(18, 2);
+
+-- Add a Constraint
+ALTER TABLE table_name ADD CONSTRAINT constraint_name constraint_definition;
+ALTER TABLE employees ADD CONSTRAINT email_unique UNIQUE (email);
+
+-- Drop a constraint
+ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+ALTER TABLE employees DROP CONSTRAINT email_unique;
+
+```
+## 3. Drop Table
+To delete a table and all its data, use the DROP TABLE statement.
+
+```sql
+
+DROP TABLE table_name;
+DROP TABLE employees;
+
+```
+## 4. Rename Table
+To rename an existing table, use the RENAME TO statement.
+
+```sql
+
+ALTER TABLE old_table_name RENAME TO new_table_name;
+ALTER TABLE employees RENAME TO staff;
+
+```
+
+## 5. Truncate Table
+To remove all data from a table without dropping the table itself, use the TRUNCATE statement.
+
+```sql
+
+TRUNCATE TABLE table_name;
+TRUNCATE TABLE employees;
+
+```
+
+## 6. Adding Foreign Key Constraint
+To add a foreign key constraint, use the ADD CONSTRAINT clause within ALTER TABLE.
+
+```sql
+
+ALTER TABLE table_name ADD CONSTRAINT constraint_name FOREIGN KEY (column_name) REFERENCES other_table_name (column_name);
+ALTER TABLE employees ADD CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES departments (department_id);
+
+```
+
+## 7. Creating an Index
+To create an index on a table column, use the CREATE INDEX statement.
+
+```sql
+
+CREATE INDEX index_name ON table_name (column_name);
+CREATE INDEX idx_last_name ON employees (last_name);
+
+```
+
+## 8. Dropping an Index
+To drop an index, use the DROP INDEX statement.
+
+```sql
+
+DROP INDEX index_name;
+DROP INDEX idx_last_name;
+
+```
+
