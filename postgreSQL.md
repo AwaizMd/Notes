@@ -143,7 +143,7 @@
 
 # Table Level Queries
 
-This document provides common table-level queries in PostgreSQL, including creating a table, altering a table, and dropping a table.
+Common table-level queries, including creating a table, altering a table, and dropping a table.
 
 ## 1. Create Table
 
@@ -246,3 +246,121 @@ DROP INDEX idx_last_name;
 
 ```
 
+
+# Record Level Queries
+
+Common record-level queries, including inserting records, updating records, deleting records, and selecting records.
+
+## Insert Records
+
+To insert a new record into a table, use the `INSERT INTO` statement.
+
+```sql
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+INSERT INTO employees (first_name, last_name, email, hire_date, salary)
+VALUES ('John', 'Doe', 'john.doe@example.com', '2024-01-15', 60000);
+
+```
+
+## Update Records
+To update existing records in a table, use the UPDATE statement.
+
+
+UPDATE table_name
+```sql
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+UPDATE employees
+SET salary = 65000
+WHERE employee_id = 1;
+
+```
+
+## Delete Records
+
+To delete records from a table, use the DELETE FROM statement.
+
+```sql
+
+DELETE FROM table_name
+WHERE condition;
+
+DELETE FROM employees
+WHERE employee_id = 1;
+
+```
+## Select Records
+To retrieve records from a table, use the SELECT statement.
+
+```sql
+
+SELECT column1, column2, column3, ...
+FROM table_name
+WHERE condition;
+
+SELECT first_name, last_name, email
+FROM employees
+WHERE salary > 50000;
+
+```
+
+## Select All Records
+To retrieve all records from a table, use the SELECT * statement.
+
+```sql
+
+SELECT * FROM table_name;
+
+SELECT * FROM employees;
+
+```
+
+## Select with Ordering
+To retrieve records in a specific order, use the ORDER BY clause.
+
+```sql
+
+SELECT column1, column2, column3, ...
+FROM table_name
+ORDER BY column_name [ASC|DESC];
+
+SELECT first_name, last_name, salary
+FROM employees
+ORDER BY salary DESC;
+
+```
+
+## Select with Limit
+To retrieve a specific number of records, use the LIMIT clause.
+
+```sql
+
+SELECT column1, column2, column3, ...
+FROM table_name
+LIMIT number;
+
+SELECT first_name, last_name, email
+FROM employees
+LIMIT 10;
+
+```
+
+## Select with Join
+To retrieve records from multiple tables, use the JOIN clause.
+
+```sql
+
+SELECT table1.column1, table2.column2, ...
+FROM table1
+JOIN table2
+ON table1.common_column = table2.common_column;
+
+SELECT employees.first_name, employees.last_name, departments.department_name
+FROM employees
+JOIN departments
+ON employees.department_id = departments.department_id;
+
+```
