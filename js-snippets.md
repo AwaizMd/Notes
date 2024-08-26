@@ -37,7 +37,9 @@ Array is equal not array:
 
 ### 💡 Explanation:
 
-The abstract equality operator converts both sides to numbers to compare them, and both sides become the number `0` for different reasons. Arrays are truthy, so on the right, the opposite of a truthy value is `false`, which is then coerced to `0`. On the left, however, an empty array is coerced to a number without becoming a boolean first, and empty arrays are coerced to `0`, despite being truthy.
+The abstract equality operator(==) converts both sides to numbers to compare them, and both sides become the number `0` for different reasons. Arrays are truthy, so on the right, the opposite of a truthy value is `false`, which is then coerced to `0`. On the left, however, an empty array is coerced to a number without becoming a boolean first, and empty arrays are coerced to `0`, despite being truthy.
+
+(strict eqality operator ===)
 
 Here is how this expression simplifies:
 
@@ -48,10 +50,36 @@ Here is how this expression simplifies:
 true;
 ```
 
+Loose Equality (==): Performs type coercion, leading to [] == ![] being true.
+Strict Equality (===): Does not perform type coercion, so [] === ![] is false because the types are different.
+
 See also [`[]` is truthy, but not `true`](#-is-truthy-but-not-true).
 
 - [**12.5.9** Logical NOT Operator (`!`)](https://www.ecma-international.org/ecma-262/#sec-logical-not-operator)
 - [**7.2.15** Abstract Equality Comparison](https://262.ecma-international.org/11.0/index.html#sec-abstract-equality-comparison)
+
+
+### Examples of truthy values:
+
+`A value is considered "truthy" if it evaluates to true when used in a boolean context (like an if statement) but is not necessarily the boolean true, Any value that is not falsy is considered truthy.`
+
+* 1, -1, 100 (any non-zero number)
+* "hello", "false", "0" (any non-empty string)
+* [] (an empty array)
+* {} (an empty object)
+* function() {} (any function)
+* new Date() (any date object)
+
+### Examples of falsy values:
+
+`A value is considered "falsy" if it evaluates to false when used in a boolean context, but it is not necessarily the boolean false.`
+
+* 0 (the number zero)
+* "" (an empty string)
+* null (the absence of any value)
+* undefined (a variable that has been declared but not assigned a value)
+* NaN (the result of an invalid or undefined mathematical operation)
+* false (the boolean value itself)
 
 ## `true` is not equal `![]`, but not equal `[]` too
 
@@ -113,8 +141,9 @@ false == false; // -> true
 ## true is false
 
 ```js
-!!"false" == !!"true"; // -> true
-!!"false" === !!"true"; // -> true
+//  !! is a common trick to convert any value into its boolean equivalent (truthy or falsy).
+!!"false" == !!"true"; => truthy == truthy // -> true
+!!"false" === !!"true";  => truthy == truthy // -> true
 ```
 
 ### 💡 Explanation:
@@ -122,9 +151,9 @@ false == false; // -> true
 Consider this step-by-step:
 
 ```js
-// true is 'truthy' and represented by value 1 (number), 'true' in string form is NaN.
-true == "true"; // -> false
-false == "false"; // -> false
+// true is 'truthy' and represented by value 1 (number bcz of type coercion), 'true' in string form is NaN.
+true == "true"; => 1 = "true" // -> false
+false == "false"; => 0 = "false"  // -> false
 
 // 'false' is not the empty string, so it's a truthy value
 !!"false"; // -> true
@@ -137,6 +166,11 @@ false == "false"; // -> false
 
 ```js
 "b" + "a" + +"a" + "a"; // -> 'baNaNa'
+/*
+=> 'b'+'a'+(+'a'--> NAN)+'a'  ==> The + before 'a' is a unary plus operator. Its purpose is to convert its operand to a 
+    number. When you apply the unary + to a string that cannot be converted to a valid number, it results in NaN (which 
+    stands for "Not-a-Number").
+*/
 ```
 
 This is an old-school joke in JavaScript, but remastered. Here's the original one:
@@ -155,6 +189,8 @@ The expression is evaluated as `'foo' + (+'bar')`, which converts `'bar'` to not
 ## `NaN` is not a `NaN`
 
 ```js
+` This is because NaN (which stands for "Not-a-Number") is a special value that is not considered equal to anything, including itself `
+
 NaN === NaN; // -> false
 ```
 
