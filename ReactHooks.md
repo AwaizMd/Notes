@@ -176,6 +176,40 @@ function DataFetcher() {
 
 **Explanation:** useEffect is used to fetch data when the component mounts (runs only once). It’s a common pattern for data fetching in functional components.
 
+### 2.2. useLayoutEffect
+
+Runs synchronously after all DOM mutations. Used when you need to measure or modify the DOM immediately after render.
+
+**Example**: Measuring DOM Size
+
+```jsx
+import { useLayoutEffect, useRef, useState } from "react";
+
+function LayoutComponent() {
+  const [height, setHeight] = useState(0);
+  const divRef = useRef();
+
+  useLayoutEffect(() => {
+    setHeight(divRef.current.offsetHeight);
+  }, []);
+
+  return (
+    <div>
+      <div
+        ref={divRef}
+        style={{ height: "100px", backgroundColor: "lightblue" }}
+      >
+        Resize me
+      </div>
+      <p>Height: {height}px</p>
+    </div>
+  );
+}
+```
+
+**Explanation**: useLayoutEffect is used to measure the height of the div immediately after it renders. This hook is useful when you need to interact with the DOM before the browser paints the screen.
+
+
 ## 3. Reference Hooks
 
 ### 3.1. `useRef`
@@ -212,6 +246,45 @@ function Timer() {
 ```
 
 **Explanation:** useRef is used to store the interval ID without causing re-renders, allowing the timer to start and stop.
+
+
+### 3.2. useImperativeHandle
+Customizes the instance value that is exposed to parent components when using ref.
+
+**Example**: Exposing Child Methods to Parent
+
+```jsx
+import { useImperativeHandle, forwardRef, useRef } from "react";
+
+function ChildComponent(props, ref) {
+  const inputRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      inputRef.current.focus();
+    },
+  }));
+
+  return <input ref={inputRef} placeholder="Focus me" />;
+}
+
+const ForwardedChild = forwardRef(ChildComponent);
+
+function ParentComponent() {
+  const ref = useRef();
+
+  return (
+    <div>
+      <ForwardedChild ref={ref} />
+      <button onClick={() => ref.current.focusInput()}>Focus Input</button>
+    </div>
+  );
+}
+```
+
+**Explanation**: useImperativeHandle allows the child component to expose a method (focusInput) that the parent component can call, without exposing the entire DOM element.
+
+
 
 ## 4. Performance Hooks
 
@@ -433,73 +506,3 @@ function FormComponent() {
 ```
 
 **Explanation:** useId generates unique IDs, useful for ensuring form fields or components have unique identifiers, especially when the component is reused multiple times.
-
-### 3.2. useImperativeHandle
-
-Customizes the instance value that is exposed to parent components when using ref.
-
-**Example**: Exposing Child Methods to Parent
-
-```jsx
-import { useImperativeHandle, forwardRef, useRef } from "react";
-
-function ChildComponent(props, ref) {
-  const inputRef = useRef();
-
-  useImperativeHandle(ref, () => ({
-    focusInput: () => {
-      inputRef.current.focus();
-    },
-  }));
-
-  return <input ref={inputRef} placeholder="Focus me" />;
-}
-
-const ForwardedChild = forwardRef(ChildComponent);
-
-function ParentComponent() {
-  const ref = useRef();
-
-  return (
-    <div>
-      <ForwardedChild ref={ref} />
-      <button onClick={() => ref.current.focusInput()}>Focus Input</button>
-    </div>
-  );
-}
-```
-
-**Explanation**: useImperativeHandle allows the child component to expose a method (focusInput) that the parent component can call, without exposing the entire DOM element.
-
-### 2.2. useLayoutEffect
-
-Runs synchronously after all DOM mutations. Used when you need to measure or modify the DOM immediately after render.
-
-**Example**: Measuring DOM Size
-
-```jsx
-import { useLayoutEffect, useRef, useState } from "react";
-
-function LayoutComponent() {
-  const [height, setHeight] = useState(0);
-  const divRef = useRef();
-
-  useLayoutEffect(() => {
-    setHeight(divRef.current.offsetHeight);
-  }, []);
-
-  return (
-    <div>
-      <div
-        ref={divRef}
-        style={{ height: "100px", backgroundColor: "lightblue" }}
-      >
-        Resize me
-      </div>
-      <p>Height: {height}px</p>
-    </div>
-  );
-}
-```
-
-**Explanation**: useLayoutEffect is used to measure the height of the div immediately after it renders. This hook is useful when you need to interact with the DOM before the browser paints the screen.
