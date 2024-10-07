@@ -1,6 +1,6 @@
 # Categories of React Hooks
 
-The video divides React hooks into 8 major categories:
+The article divides React hooks into 7 major categories:
 
 1. **State Management Hooks** (e.g., `useState`, `useReducer`)
 2. **Effect Hooks** (e.g., `useEffect`, `useLayoutEffect`, `useInsertionEffect`)
