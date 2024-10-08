@@ -111,6 +111,74 @@ function UserForm() {
 
 **Explanation:** useReducer manages form state by handling multiple related state variables (name and email) with actions dispatched to update each field.
 
+```jsx
+import React, { useReducer } from 'react';
+
+// Step 1: Define the initial state
+const initialState = { cart: [] };
+
+// Step 2: Create the reducer function
+function reducer(state, action) {
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return { ...state, cart: [...state.cart, { id: action.payload.id, name: action.payload.name, quantity: 1 }] };
+    case 'REMOVE_ITEM':
+      return { ...state, cart: state.cart.filter(item => item.id !== action.payload) };
+    case 'UPDATE_QUANTITY':
+      return {
+        ...state,
+        cart: state.cart.map(item =>
+          item.id === action.payload.id ? { ...item, quantity: action.payload.quantity } : item
+        ),
+      };
+    default:
+      return state;
+  }
+}
+
+const ShoppingCart = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <button onClick={() => dispatch({ type: 'ADD_ITEM', payload: { id: 1, name: 'Product 1' } })}>
+        Add Product 1
+      </button>
+      <button onClick={() => dispatch({ type: 'ADD_ITEM', payload: { id: 2, name: 'Product 2' } })}>
+        Add Product 2
+      </button>
+
+      <ul>
+        {state.cart.map(item => (
+          <li key={item.id}>
+            {item.name} - Quantity: {item.quantity}
+            <button onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.id })}>Remove</button>
+            <button
+              onClick={() =>
+                dispatch({ type: 'UPDATE_QUANTITY', payload: { id: item.id, quantity: item.quantity + 1 } })
+              }
+            >
+              Increase Quantity
+            </button>
+            <button
+              onClick={() =>
+                dispatch({ type: 'UPDATE_QUANTITY', payload: { id: item.id, quantity: item.quantity - 1 } })
+              }
+            >
+              Decrease Quantity
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ShoppingCart;
+
+
+```
+
 ## 2. Side Effect Hooks
 
 ### 2.1. `useEffect`
