@@ -179,6 +179,8 @@ export default ShoppingCart;
 
 ```
 
+`usecases` : https://www.notion.so/Use-Ref-Usages-119af9bae155800687bdfb8661f9b3c6?pvs=4
+
 ## 2. Side Effect Hooks
 
 ### 2.1. `useEffect`
@@ -315,6 +317,7 @@ function Timer() {
 
 **Explanation:** useRef is used to store the interval ID without causing re-renders, allowing the timer to start and stop.
 
+`usecases` : https://www.notion.so/Use-Ref-Usages-119af9bae155800687bdfb8661f9b3c6?pvs=4
 
 ### 3.2. useImperativeHandle
 Customizes the instance value that is exposed to parent components when using ref.
