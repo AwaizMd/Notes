@@ -390,6 +390,8 @@ function ExpensiveCalculation({ numbers }) {
 
 **Explanation:** useMemo optimizes performance by preventing unnecessary recalculations of expensive operations unless the dependencies (in this case, numbers) change.
 
+*article* : https://www.notion.so/useMemo-119af9bae15580e6958be44f07f1af6d?pvs=4
+
 ### 4.2. `useCallback`
 
 Memoizes a function, preventing it from being recreated on each render.
@@ -424,6 +426,8 @@ function ParentComponent() {
 `or`
 _useCallback prevents the increment function from being recreated on every render, which reduces unnecessary re-renders when passing callbacks as props._
 
+*article*: https://www.notion.so/useCallback-119af9bae1558022b02ac78d23ced389?pvs=4
+
 ## 5. Context Hook
 
 ### 5.1. `useContext`
@@ -453,6 +457,8 @@ function App() {
 ```
 
 **Explanation:** useContext accesses the current value of ThemeContext without manually passing props. Useful for global data such as themes or authentication.
+
+*article* : https://www.notion.so/useContext-119af9bae15580eca18ce0748adcf53a?pvs=4
 
 ## 6. Transition Hooks
 
