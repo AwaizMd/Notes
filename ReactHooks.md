@@ -179,7 +179,7 @@ export default ShoppingCart;
 
 ```
 
-`usecases` : https://www.notion.so/Use-Ref-Usages-119af9bae155800687bdfb8661f9b3c6?pvs=4
+`usecases` : https://www.notion.so/useReducer-119af9bae15580279fecd0587916e69c?pvs=4
 
 ## 2. Side Effect Hooks
 
