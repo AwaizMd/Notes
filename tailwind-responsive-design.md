@@ -3,15 +3,23 @@
 
 # Responsive Breakpoints
 
-Tailwind uses a **mobile-first design**. Add breakpoint prefixes to utilities for responsive styling.
 
-| **Prefix** | **Min Width** | **Example**             |
-|------------|---------------|-------------------------|
-| `sm:`      | 640px         | `sm:text-lg`           |
-| `md:`      | 768px         | `md:bg-blue-500`       |
-| `lg:`      | 1024px        | `lg:p-4`               |
-| `xl:`      | 1280px        | `xl:grid-cols-3`       |
-| `2xl:`     | 1536px        | `2xl:max-w-screen-lg`  |
+# Device Screen Sizes and Tailwind CSS Breakpoints
+
+| **Device**             | **Width** | **Height** | **Tailwind Prefix** | **Breakpoint** |
+|-------------------------|-----------|------------|---------------------|----------------|
+| iPhone SE               | 375px     | 667px      | (default)           | `<640px`       |
+| iPhone 12 Pro           | 390px     | 844px      | (default)           | `<640px`       |
+| Pixel 5                 | 393px     | 851px      | (default)           | `<640px`       |
+| iPad Mini               | 768px     | 1024px     | `md:`               | `≥768px`       |
+| iPad Air                | 820px     | 1180px     | `md:`               | `≥768px`       |
+| Surface Pro 7           | 912px     | 1368px     | `md:`               | `≥768px`       |
+| iPad Pro                | 1024px    | 1366px     | `lg:`               | `≥1024px`      |
+| MacBook Air             | 1280px    | 832px      | `xl:`               | `≥1280px`      |
+| MacBook Pro             | 1440px    | 900px      | `xl:`               | `≥1280px`      |
+| Desktop 1080p           | 1920px    | 1080px     | `2xl:`              | `≥1536px`      |
+| Desktop 4K              | 2560px    | 1440px     | `2xl:`              | `≥1536px`      |
+
 
 
 
