@@ -1,5 +1,21 @@
 # Tailwind CSS Responsive Design Cheatsheet
 
+
+# Responsive Breakpoints
+
+Tailwind uses a **mobile-first design**. Add breakpoint prefixes to utilities for responsive styling.
+
+| **Prefix** | **Min Width** | **Example**             |
+|------------|---------------|-------------------------|
+| `sm:`      | 640px         | `sm:text-lg`           |
+| `md:`      | 768px         | `md:bg-blue-500`       |
+| `lg:`      | 1024px        | `lg:p-4`               |
+| `xl:`      | 1280px        | `xl:grid-cols-3`       |
+| `2xl:`     | 1536px        | `2xl:max-w-screen-lg`  |
+
+
+
+
 | **Feature**       | **Mobile<br>(Default)** | **Tablet<br>(`sm:`)** | **Small Laptop<br>(`md:`)** | **Large Laptop<br>(`lg:`)** | **Desktop<br>(`xl:`)** | **TV/4K<br>(`2xl:`)** |
 |--------------------|-------------------------|------------------------|-----------------------------|-----------------------------|-------------------------|------------------------|
 | **Text Size**      | `text-sm`              | `sm:text-base`         | `md:text-lg`               | `lg:text-xl`               | `xl:text-2xl`          | `2xl:text-3xl`         |
