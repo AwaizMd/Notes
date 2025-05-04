@@ -26,6 +26,9 @@ Node.js and Java are both powerful technologies for building server-side applica
 
 Node.js is made up of two major components: the V8 engine and the LibUV library.
 
+![image](https://github.com/user-attachments/assets/22cb8434-9a9e-419b-a966-b9095fb9c914)
+
+
 1.  **V8 engine**: The V8 engine is responsible for executing JavaScript code. It is a fundamental part of Node.js and provides the ability to execute JavaScript code outside of a web browser.
 2.  **LibUV library**: The LibUV library is an open-source library that provides the ability to perform asynchronous I/O operations. It is written in C++ and provides the ability to access the file system, networking, and other operating system resources.
 3.  **Eventloop**: The eventloop is responsible for handling events such as timers, sockets, and file I/O. It is an essential part of Node.js and provides the ability to handle multiple requests at the same time.
@@ -53,10 +56,14 @@ Asynchronous file I/O is used to read and write files in a non-blocking manner. 
 
 ## Event Driven Architecture
 
+![image](https://github.com/user-attachments/assets/015a1ae0-baa8-4ba2-a4f7-019740d65dbe)
+
+![image](https://github.com/user-attachments/assets/94999f75-9bda-4f63-b840-2de1413f251f)
+
 Event driven architecture is a design pattern that is used to handle events such as user input, network requests, and file I/O. It is an essential part of Node.js and provides the ability to handle events in a non-blocking manner.
 
-## Why should one register a listener first and call emit method next in Node.js?
-
+When an event is emitted then it will listen to the listeners so first we will have to call the listener and handle the event then emit the event.
+`Why should one register a listener first and call emit method next in Node.js`
 The reason why one should register a listener first and call emit method next in Node.js is that the listener needs to be registered before the event is emitted. If the listener is registered after the event is emitted, then the event will not be handled by the listener.
 
 ## Body-parser
@@ -65,7 +72,15 @@ Body-parser is an npm module that is used to parse data sent in an HTTP request 
 
 ## Working
 
-Once the execution of top-level code is done, the eventloop starts (callback functions get queued in eventloop forming callback queue) and the event loop pushes the callback function from the queue to the main thread where callback functions get executed. If any callback function is taking time, it won't get executed in the main thread; it will be executed in the thread pool in some other thread. In Node.js, by default, we get four thread pools which are completely separated from the main single thread, and we can configure it to 1024 threads, but usually, these four are enough. These together form a threadpool. Dealing with files, compression tasks, everything related to cryptography, hashing passwords - these are the things that most commonly block the main thread, so Node takes care automatically of offloading these heavy tasks to thread pool.
+![image](https://github.com/user-attachments/assets/b92975b7-64d8-4a54-ad62-d9238d5720f7)
+
+
+Once the execution of top-level code is done, the eventloop starts (callback functions get queued in eventloop forming callback queue) and the event loop pushes the callback function from the queue to the main thread where callback functions get executed. 
+![image](https://github.com/user-attachments/assets/105c3c4a-d22c-425b-8c90-3359c625e6ff)
+If any callback function is taking time, it won't get executed in the main thread; 
+![image](https://github.com/user-attachments/assets/554cc19e-db62-4a1f-a5db-623cfa5f053e)
+
+it will be executed in the thread pool in some other thread. In Node.js, by default, we get four thread pools which are completely separated from the main single thread, and we can configure it to 1024 threads, but usually, these four are enough. These together form a threadpool. Dealing with files, compression tasks, everything related to cryptography, hashing passwords - these are the things that most commonly block the main thread, so Node takes care automatically of offloading these heavy tasks to thread pool.
 
 ## Middleware in Node.js
 
