@@ -1,4 +1,4 @@
-# Node Js Interview Prep
+# Node Js Notes
 
 ## What is  node.js?
 
